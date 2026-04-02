@@ -37,14 +37,16 @@ namespace WordCorrector {
 
       StringBuilder result = new StringBuilder();
 
-      foreach (string word in words) {
+      for (int wordIndex = 0; wordIndex < words.Length; ++wordIndex) {
+        string currentWord = words[wordIndex];
+
         // Check if the token is a word (only letters)
-        if (Regex.IsMatch(word, @"^[а-яА-Яa-zA-Z]+$")) {
-          string correctedWord = DictionaryService.CorrectWord(word);
+        if (Regex.IsMatch(currentWord, @"^[а-яА-Яa-zA-Z]+$")) {
+          string correctedWord = DictionaryService.CorrectWord(currentWord);
           result.Append(correctedWord);
         } else {
           // Preserve separators and punctuation as is
-          result.Append(word);
+          result.Append(currentWord);
         }
       }
 

@@ -22,8 +22,9 @@ namespace WordCorrector {
 
       Console.WriteLine($"\nFound {txtFiles.Length} files to process:\n");
 
-      foreach (string filePath in txtFiles) {
-        ProcessSingleFile(filePath);
+      for (int fileIndex = 0; fileIndex < txtFiles.Length; ++fileIndex) {
+        string currentFilePath = txtFiles[fileIndex];
+        ProcessSingleFile(currentFilePath);
       }
     }
 
